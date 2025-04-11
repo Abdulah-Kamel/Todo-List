@@ -1,0 +1,181 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --form-control-disabled: #959495;
+}
+
+
+body {
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("./images/background.avif");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.sub-container {
+    text-align: center;
+    width: 90%;
+    margin: 100px auto;
+}
+
+#todo-form {
+    width: 70%;
+    margin: 20px auto 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#todo-form #todo-input {
+    padding: 15px;
+    width: 80%;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+#todo-form #todo-input:focus {
+    outline: none;
+}
+
+#todo-form button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: lightgreen;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+#todo-list {
+    width: 70%;
+    margin: 50px auto 0;
+    background-color: #eee;
+    padding: 50px 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+#todo-list .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    gap: 25px;
+}
+
+.todo-item .form-control {
+    font-family: system-ui, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: forestgreen;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid forestgreen;
+    border-radius: 0.15em;
+    display: grid;
+    place-content: center;
+    align-items: center;
+}
+
+.form-control + .form-control {
+    margin-top: 1em;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.6em;
+    height: 0.6em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    /*box-shadow: inset 1em 1em var(--form-control-color);*/
+    background-color: forestgreen;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid forestgreen;
+    outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+    --form-control-color: var(--form-control-disabled);
+
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+}
+
+.form-control--disabled {
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+}
+
+.todo-item .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions button, .update-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.edit-button, .update-button {
+    background-color: lightblue;
+}
+
+.delete-button {
+    background-color: lightcoral;
+}
+
+.edit-input {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
