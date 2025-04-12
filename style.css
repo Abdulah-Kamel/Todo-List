@@ -179,3 +179,11 @@ input[type="checkbox"]:disabled {
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
 }
+
+
+@media screen and (max-width: 768px)  {
+    #todo-form ,#todo-list{
+        width: 90%; 
+    }
+
+}
